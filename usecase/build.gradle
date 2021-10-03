@@ -14,4 +14,7 @@ dependencies {
     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+
+    // di
+    implementation 'javax.inject:javax.inject:1'
 }

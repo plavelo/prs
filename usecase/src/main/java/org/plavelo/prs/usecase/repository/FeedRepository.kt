@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import org.plavelo.prs.domain.rss.entity.Feed
 
 interface FeedRepository {
-    suspend fun save(feed: Feed)
+    suspend fun create(feed: Feed)
 
     fun list(): Flow<List<Feed>>
 }
