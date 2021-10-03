@@ -1,4 +1,4 @@
-package org.plavelo.prs.domain.rss
+package org.plavelo.prs.domain.rss.entity
 
 import java.net.URL
 
