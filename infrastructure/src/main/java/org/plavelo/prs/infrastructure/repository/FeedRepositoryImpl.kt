@@ -2,7 +2,7 @@ package org.plavelo.prs.infrastructure.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import org.plavelo.prs.domain.rss.entity.Feed
+import org.plavelo.prs.domain.feed.Feed
 import org.plavelo.prs.infrastructure.mapper.toDto
 import org.plavelo.prs.infrastructure.mapper.toModel
 import org.plavelo.prs.infrastructure.repository.database.dao.FeedDao

@@ -1,15 +1,12 @@
 package org.plavelo.prs.infrastructure.repository.database.dto
 
 import androidx.room.Entity
-import androidx.room.Index
+import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "feeds",
-    indices = [Index(
-        value = ["url"],
-        unique = true
-    )]
 )
 data class FeedDto(
+    @PrimaryKey
     val url: String,
 )

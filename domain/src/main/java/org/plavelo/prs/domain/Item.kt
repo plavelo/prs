@@ -1,4 +1,4 @@
-package org.plavelo.prs.domain.rss.entity
+package org.plavelo.prs.domain
 
 import java.util.Date
 
