@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.plavelo.prs.R
-import org.plavelo.prs.domain.feed.Feed
+import org.plavelo.prs.domain.Feed
 
 class FeedListAdapter :
     ListAdapter<Feed, FeedListAdapter.FeedViewHolder>(FeedDiffCallback) {

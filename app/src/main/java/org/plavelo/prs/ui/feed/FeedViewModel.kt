@@ -6,21 +6,34 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.plavelo.prs.domain.feed.Feed
-import org.plavelo.prs.usecase.FeedUseCase
+import org.plavelo.prs.domain.Feed
+import org.plavelo.prs.usecase.RssUseCase
 import javax.inject.Inject
+import org.plavelo.prs.domain.Article
+import org.plavelo.prs.domain.Channel
+import org.plavelo.prs.domain.ChannelId
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-    private val feedUseCase: FeedUseCase,
+    private val rssUseCase: RssUseCase,
 ) : ViewModel() {
 
-    val list: LiveData<List<Feed>> =
-        feedUseCase
-            .list()
+    val feeds: LiveData<List<Feed>> =
+        rssUseCase
+            .feeds()
+            .asLiveData()
+
+    val channels: LiveData<List<Channel>> =
+        rssUseCase
+            .channels()
+            .asLiveData()
+
+    fun articles(channelId: ChannelId): LiveData<List<Article>> =
+        rssUseCase
+            .articles(channelId)
             .asLiveData()
 
     fun add(feed: Feed) = viewModelScope.launch {
-        feedUseCase.add(feed)
+        rssUseCase.add(feed)
     }
 }

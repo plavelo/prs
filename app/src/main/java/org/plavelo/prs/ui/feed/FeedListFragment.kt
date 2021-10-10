@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import org.plavelo.prs.databinding.FragmentFeedListBinding
-import org.plavelo.prs.domain.feed.Feed
+import org.plavelo.prs.domain.Feed
 
 @AndroidEntryPoint
 class FeedListFragment : Fragment() {
@@ -55,7 +55,7 @@ class FeedListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.list.observe(viewLifecycleOwner, {
+        viewModel.feeds.observe(viewLifecycleOwner, {
             it?.let {
                 feedAdapter.submitList(it)
             }

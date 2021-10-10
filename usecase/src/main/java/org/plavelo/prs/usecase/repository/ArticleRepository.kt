@@ -1,5 +1,10 @@
 package org.plavelo.prs.usecase.repository
 
-interface ArticleRepository {
+import kotlinx.coroutines.flow.Flow
+import org.plavelo.prs.domain.Article
 
+interface ArticleRepository {
+    suspend fun create(article: Article)
+
+    fun list(): Flow<List<Article>>
 }
