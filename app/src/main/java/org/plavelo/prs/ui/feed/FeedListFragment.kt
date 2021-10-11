@@ -56,9 +56,14 @@ class FeedListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.feeds.observe(viewLifecycleOwner, {
-            it?.let {
-                feedAdapter.submitList(it)
+        viewModel.feeds.observe(viewLifecycleOwner, { feeds ->
+            if (feeds != null) {
+                feedAdapter.submitList(feeds)
+            }
+            binding.emptyText.visibility = if (feeds.isNullOrEmpty()) {
+                View.VISIBLE
+            } else {
+                View.GONE
             }
         })
     }
