@@ -1,35 +1,35 @@
 package org.plavelo.prs.ui.feed
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import org.plavelo.prs.R
+import org.plavelo.prs.databinding.FragmentFeedListItemBinding
 import org.plavelo.prs.domain.Feed
 
 class FeedListAdapter :
     ListAdapter<Feed, FeedListAdapter.FeedViewHolder>(FeedDiffCallback) {
 
-    class FeedViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
-        private val urlTextView: TextView = itemView.findViewById(R.id.textView)
+    class FeedViewHolder(private val binding: FragmentFeedListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         private var currentFeed: Feed? = null
 
         fun bind(feed: Feed) {
             currentFeed = feed
-            urlTextView.text = feed.url
+            binding.textView.text = feed.url
         }
     }
 
     override fun getItemCount() = currentList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_feed_list_item, parent, false)
-        return FeedViewHolder(view)
+        val binding = FragmentFeedListItemBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return FeedViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {

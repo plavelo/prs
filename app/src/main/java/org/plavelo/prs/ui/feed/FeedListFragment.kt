@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,7 +37,7 @@ class FeedListFragment : Fragment() {
             it.addItemDecoration(dividerItemDecoration)
             it.layoutManager = LinearLayoutManager(requireContext())
         }
-        binding.textInputEditText.setOnEditorActionListener { textView, actionId, keyEvent ->
+        binding.textInputEditText.setOnEditorActionListener { textView, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_NEXT) {
                 val url = textView.text?.toString()
                 if (url != null) {

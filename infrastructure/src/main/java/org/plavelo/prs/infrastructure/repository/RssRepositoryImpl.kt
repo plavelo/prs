@@ -27,8 +27,12 @@ class RssRepositoryImpl(
 
     override suspend fun fetch(feed: Feed) {
         val (channel, articles) = rssApi.fetch(feed)
-        channelDao.replace(channel.toDto())
-        articleDao.replace(articles.toDto())
+        val channelId = channelDao.replace(channel.toDto())
+        articleDao.replace(
+            articles.toDto().map {
+                it.copy(channelId = channelId)
+            }
+        )
     }
 
     override fun feeds(): Flow<List<Feed>> =

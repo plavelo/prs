@@ -17,6 +17,7 @@ class ArticleListFragment : Fragment() {
     private val viewModel by activityViewModels<RssViewModel>()
     private lateinit var articleAdapter: ArticleListAdapter
     private lateinit var binding: FragmentArticleListBinding
+    private lateinit var channelId: ChannelId
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,18 +35,24 @@ class ArticleListFragment : Fragment() {
             it.addItemDecoration(dividerItemDecoration)
             it.layoutManager = LinearLayoutManager(requireContext())
         }
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.reload {
+                binding.swipeRefresh.isRefreshing = false
+            }
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        arguments?.takeIf { it.containsKey(ARG_CHANNEL_ID) }?.apply {
-            val channelId = ChannelId(getInt(ARG_CHANNEL_ID))
-            viewModel.articles(channelId).observe(viewLifecycleOwner, {
-                it?.let {
-                    articleAdapter.submitList(it)
-                }
-            })
-        }
+        channelId = arguments?.takeIf { it.containsKey(ARG_CHANNEL_ID) }?.let {
+            ChannelId(it.getLong(ARG_CHANNEL_ID))
+        } ?: throw IllegalStateException("The channelId must not be null.")
+
+        viewModel.articles(channelId).observe(viewLifecycleOwner, {
+            it?.let {
+                articleAdapter.submitList(it)
+            }
+        })
     }
 
     companion object {

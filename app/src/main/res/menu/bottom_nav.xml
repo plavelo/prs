@@ -3,10 +3,10 @@
     <item
         android:id="@+id/articleListFragment"
         android:icon="@drawable/outline_home_24"
-        android:title="@string/home"/>
+        android:title="@string/nav_home"/>
 
     <item
         android:id="@+id/feedListFragment"
         android:icon="@drawable/outline_note_add_24"
-        android:title="@string/add"/>
+        android:title="@string/nav_add"/>
 </menu>

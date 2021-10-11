@@ -12,11 +12,12 @@ import org.plavelo.prs.domain.ChannelId
 )
 data class ArticleDto(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val channelId: Int,
+    val id: Long = 0,
+    val channelId: Long,
     val title: String?,
     val link: String?,
     val description: String?,
+    val image: String?,
     val content: String?,
     val date: Date?,
 )
@@ -27,6 +28,7 @@ fun Article.toDto(): ArticleDto = ArticleDto(
     title = title,
     link = link,
     description = description,
+    image = image,
     content = content,
     date = date,
 )
@@ -38,6 +40,7 @@ fun ArticleDto.toModel(): Article = Article(
     title = title,
     link = link,
     description = description,
+    image = image,
     content = content,
     date = date,
 )

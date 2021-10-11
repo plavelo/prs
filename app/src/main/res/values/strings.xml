@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">prs</string>
-    <string name="home">Home</string>
-    <string name="add">Feed</string>
-    <string name="title_add">Add new feed</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_add">Feed</string>
+    <string name="title_add_feed">Add new feed</string>
+    <string name="title_list_feed">Feeds</string>
     <string name="hint_add_feed">Feed URL</string>
 </resources>

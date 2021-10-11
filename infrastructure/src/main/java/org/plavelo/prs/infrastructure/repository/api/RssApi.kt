@@ -10,10 +10,9 @@ import org.plavelo.prs.domain.Channel
 import org.plavelo.prs.domain.ChannelId
 import org.plavelo.prs.domain.Feed
 
-class RssApi(private val context: Context) {
+class RssApi(context: Context) {
     private val parser = Parser.Builder()
         .context(context)
-        .cacheExpirationMillis(24L * 60L * 60L * 100L) // one day
         .build()
 
     suspend fun fetch(feed: Feed): Pair<Channel, List<Article>> {
@@ -37,6 +36,7 @@ class RssApi(private val context: Context) {
                 article.title,
                 article.link,
                 article.description,
+                article.image,
                 article.content,
                 date,
             )

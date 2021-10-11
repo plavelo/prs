@@ -14,7 +14,7 @@ interface ChannelDao {
     fun getAll(): Flow<List<ChannelDto>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun replace(channel: ChannelDto)
+    suspend fun replace(channel: ChannelDto): Long
 
     @Delete
     suspend fun delete(channel: ChannelDto)

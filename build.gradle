@@ -21,6 +21,7 @@ buildscript {
         pagingVersion = '2.4.0-alpha05'
         recyclerViewVersion = '1.2.1'
         roomVersion = '2.3.0'
+        swiperefreshlayoutVersion = '1.1.0'
         viewPager2Version = '1.0.0'
 
         // google
@@ -28,6 +29,7 @@ buildscript {
         materialVersion = '1.4.0'
 
         // 3rd party
+        coilVersion = '1.4.0'
         junitVersion = '4.13.2'
         ktlintVersion = '10.2.0'
     }

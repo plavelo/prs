@@ -1,3 +1,3 @@
 package org.plavelo.prs.domain
 
-data class ArticleId(val value: Int, val channelId: ChannelId)
+data class ArticleId(val value: Long, val channelId: ChannelId)

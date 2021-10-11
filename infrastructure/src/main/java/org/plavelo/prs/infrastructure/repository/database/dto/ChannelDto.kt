@@ -1,16 +1,21 @@
 package org.plavelo.prs.infrastructure.repository.database.dto
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import org.plavelo.prs.domain.Channel
 import org.plavelo.prs.domain.ChannelId
 
 @Entity(
     tableName = "channels",
+    indices = [Index(
+        value = ["link"],
+        unique = true
+    )]
 )
 data class ChannelDto(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    val id: Long = 0,
     val title: String?,
     val link: String?,
     val description: String?,

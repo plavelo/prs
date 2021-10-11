@@ -37,7 +37,8 @@ class RssViewModel @Inject constructor(
         rssUseCase.add(feed)
     }
 
-    fun reload() = viewModelScope.launch {
+    fun reload(onFinished: () -> Unit) = viewModelScope.launch {
         rssUseCase.reload()
+        onFinished()
     }
 }

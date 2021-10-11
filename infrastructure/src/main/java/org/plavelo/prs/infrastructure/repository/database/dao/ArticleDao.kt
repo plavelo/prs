@@ -11,7 +11,7 @@ import org.plavelo.prs.infrastructure.repository.database.dto.ArticleDto
 @Dao
 interface ArticleDao {
     @Query("SELECT * FROM articles WHERE channelId = :channelId")
-    fun getByChannelId(channelId: Int): Flow<List<ArticleDto>>
+    fun getByChannelId(channelId: Long): Flow<List<ArticleDto>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun replace(article: ArticleDto)

@@ -2,6 +2,7 @@ package org.plavelo.prs.usecase
 
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.single
 import org.plavelo.prs.domain.Article
 import org.plavelo.prs.domain.Channel
@@ -27,7 +28,7 @@ class RssUseCase @Inject constructor(
     }
 
     suspend fun reload() {
-        val feeds = rssRepository.feeds().single()
+        val feeds = rssRepository.feeds().first()
         for (feed in feeds) {
             rssRepository.fetch(feed)
         }

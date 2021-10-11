@@ -15,7 +15,8 @@ class ArticlePagerAdapter(
     override fun createFragment(position: Int): Fragment {
         val fragment = ArticleListFragment()
         fragment.arguments = Bundle().apply {
-            putInt(ArticleListFragment.ARG_CHANNEL_ID, position + 1)
+            val channelId = channels[position].id.value
+            putLong(ArticleListFragment.ARG_CHANNEL_ID, channelId)
         }
         return fragment
     }
