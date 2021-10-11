@@ -1,6 +1,7 @@
 package org.plavelo.prs.ui.feed
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import org.plavelo.prs.R
 import org.plavelo.prs.databinding.FragmentFeedListBinding
 import org.plavelo.prs.domain.Feed
 import org.plavelo.prs.ui.RssViewModel
@@ -40,17 +42,22 @@ class FeedListFragment : Fragment() {
         binding.textInputEditText.setOnEditorActionListener { textView, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_NEXT) {
                 val url = textView.text?.toString()
-                if (url != null) {
+                // FIXME: Move this validation to the domain or usecase layer
+                if (url != null && Patterns.WEB_URL.matcher(url).matches()) {
                     viewModel.add(
                         Feed(url)
                     )
-                    textView.clearComposingText()
+                    val defaultText = getString(R.string.placeholder_add_feed)
+                    textView.text = defaultText
+                    binding.textInputEditText.setSelection(defaultText.length)
                 }
                 true
             } else {
                 false
             }
         }
+        val selection = binding.textInputEditText.text?.length ?: 0
+        binding.textInputEditText.setSelection(selection)
         return binding.root
     }
 

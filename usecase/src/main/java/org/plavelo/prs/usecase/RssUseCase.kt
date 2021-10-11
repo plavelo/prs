@@ -23,8 +23,9 @@ class RssUseCase @Inject constructor(
         rssRepository.articles(channelId)
 
     suspend fun add(feed: Feed) {
-        rssRepository.add(feed)
         rssRepository.fetch(feed)
+        // If the fetch succeeds, add the feed
+        rssRepository.add(feed)
     }
 
     suspend fun reload() {

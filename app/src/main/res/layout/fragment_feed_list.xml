@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_add_feed"
             android:singleLine="true"
+            android:text="@string/placeholder_add_feed"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 

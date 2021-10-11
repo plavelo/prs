@@ -6,4 +6,5 @@
     <string name="title_list_feed">Feeds</string>
     <string name="empty_feed">There is no feed yet.</string>
     <string name="hint_add_feed">Feed URL</string>
+    <string name="placeholder_add_feed">https://</string>
 </resources>
