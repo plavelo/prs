@@ -3,6 +3,7 @@ package org.plavelo.prs.infrastructure.repository.database.dao
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 import org.plavelo.prs.infrastructure.repository.database.dto.FeedDto
@@ -12,7 +13,7 @@ interface FeedDao {
     @Query("SELECT * FROM feeds")
     fun getAll(): Flow<List<FeedDto>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(feed: FeedDto)
 
     @Delete

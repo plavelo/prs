@@ -22,10 +22,12 @@ fun Channel.toDto(): ChannelDto = ChannelDto(
     link = link,
     description = description,
 )
+
 fun ChannelDto.toModel(): Channel = Channel(
     id = ChannelId(id),
     title = title,
     link = link,
     description = description,
 )
+
 fun List<ChannelDto>.toModel(): List<Channel> = map { it.toModel() }

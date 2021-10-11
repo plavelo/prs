@@ -30,6 +30,9 @@ fun Article.toDto(): ArticleDto = ArticleDto(
     content = content,
     date = date,
 )
+
+fun List<Article>.toDto(): List<ArticleDto> = map { it.toDto() }
+
 fun ArticleDto.toModel(): Article = Article(
     id = ArticleId(id, ChannelId(channelId)),
     title = title,
@@ -38,4 +41,5 @@ fun ArticleDto.toModel(): Article = Article(
     content = content,
     date = date,
 )
+
 fun List<ArticleDto>.toModel(): List<Article> = map { it.toModel() }

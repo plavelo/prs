@@ -6,17 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import org.plavelo.prs.databinding.FragmentFeedListBinding
 import org.plavelo.prs.domain.Feed
+import org.plavelo.prs.ui.RssViewModel
 
 @AndroidEntryPoint
 class FeedListFragment : Fragment() {
 
-    private val viewModel by viewModels<FeedViewModel>()
+    private val viewModel by activityViewModels<RssViewModel>()
     private lateinit var binding: FragmentFeedListBinding
     private lateinit var feedAdapter: FeedListAdapter
 

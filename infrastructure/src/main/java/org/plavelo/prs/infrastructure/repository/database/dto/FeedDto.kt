@@ -13,5 +13,7 @@ data class FeedDto(
 )
 
 fun Feed.toDto(): FeedDto = FeedDto(url = url)
+
 fun FeedDto.toModel(): Feed = Feed(url)
+
 fun List<FeedDto>.toModel(): List<Feed> = map { it.toModel() }

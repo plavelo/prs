@@ -1,4 +1,4 @@
-package org.plavelo.prs.ui.feed
+package org.plavelo.prs.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -14,7 +14,7 @@ import org.plavelo.prs.domain.Channel
 import org.plavelo.prs.domain.ChannelId
 
 @HiltViewModel
-class FeedViewModel @Inject constructor(
+class RssViewModel @Inject constructor(
     private val rssUseCase: RssUseCase,
 ) : ViewModel() {
 
