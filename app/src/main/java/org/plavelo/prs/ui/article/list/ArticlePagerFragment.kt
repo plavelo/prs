@@ -33,6 +33,11 @@ class ArticlePagerFragment : Fragment() {
                     tab.text = channels[position].title
                 }.attach()
             }
+            binding.emptyText.visibility = if (channels.isNullOrEmpty()) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
         }
     }
 }
