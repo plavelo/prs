@@ -6,14 +6,32 @@
 
     <fragment
         android:id="@+id/articleListFragment"
-        android:name="org.plavelo.prs.ui.article.ArticlePagerFragment"
+        android:name="org.plavelo.prs.ui.article.list.ArticlePagerFragment"
         android:label="ArticleListFragment">
         <action
             android:id="@+id/action_articleListFragment_to_feedListFragment"
             app:destination="@id/feedListFragment" />
+        <action
+            android:id="@+id/action_articleListFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment"
+            app:launchSingleTop="false" />
     </fragment>
     <fragment
         android:id="@+id/feedListFragment"
         android:name="org.plavelo.prs.ui.feed.FeedListFragment"
         android:label="FeedListFragment" />
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="org.plavelo.prs.ui.article.detail.ArticleDetailFragment"
+        android:label="ArticleDetailFragment">
+        <argument
+            android:name="articleId"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="channelId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
 </navigation>

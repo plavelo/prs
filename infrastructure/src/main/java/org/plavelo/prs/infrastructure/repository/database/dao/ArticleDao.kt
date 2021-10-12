@@ -10,6 +10,9 @@ import org.plavelo.prs.infrastructure.repository.database.dto.ArticleDto
 
 @Dao
 interface ArticleDao {
+    @Query("SELECT * FROM articles WHERE id = :articleId LIMIT 1")
+    fun getByArticleId(articleId: Long): Flow<ArticleDto>
+
     @Query("SELECT * FROM articles WHERE channelId = :channelId")
     fun getByChannelId(channelId: Long): Flow<List<ArticleDto>>
 

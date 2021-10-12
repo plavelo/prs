@@ -3,6 +3,7 @@ package org.plavelo.prs.infrastructure.repository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import org.plavelo.prs.domain.Article
+import org.plavelo.prs.domain.ArticleId
 import org.plavelo.prs.domain.Channel
 import org.plavelo.prs.domain.ChannelId
 import org.plavelo.prs.domain.Feed
@@ -42,6 +43,11 @@ class RssRepositoryImpl(
 
     override fun channels(): Flow<List<Channel>> =
         channelDao.getAll().map {
+            it.toModel()
+        }
+
+    override fun article(articleId: ArticleId): Flow<Article> =
+        articleDao.getByArticleId(articleId.value).map {
             it.toModel()
         }
 

@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.single
 import org.plavelo.prs.domain.Article
+import org.plavelo.prs.domain.ArticleId
 import org.plavelo.prs.domain.Channel
 import org.plavelo.prs.domain.ChannelId
 import org.plavelo.prs.domain.Feed
@@ -18,6 +19,9 @@ class RssUseCase @Inject constructor(
 
     fun channels(): Flow<List<Channel>> =
         rssRepository.channels()
+
+    fun article(articleId: ArticleId): Flow<Article> =
+        rssRepository.article(articleId)
 
     fun articles(channelId: ChannelId): Flow<List<Article>> =
         rssRepository.articles(channelId)

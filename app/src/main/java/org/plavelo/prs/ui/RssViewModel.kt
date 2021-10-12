@@ -12,6 +12,7 @@ import org.plavelo.prs.usecase.RssUseCase
 import javax.inject.Inject
 import kotlinx.coroutines.SupervisorJob
 import org.plavelo.prs.domain.Article
+import org.plavelo.prs.domain.ArticleId
 import org.plavelo.prs.domain.Channel
 import org.plavelo.prs.domain.ChannelId
 
@@ -28,6 +29,11 @@ class RssViewModel @Inject constructor(
     val channels: LiveData<List<Channel>> =
         rssUseCase
             .channels()
+            .asLiveData()
+
+    fun article(articleId: ArticleId): LiveData<Article> =
+        rssUseCase
+            .article(articleId)
             .asLiveData()
 
     fun articles(channelId: ChannelId): LiveData<List<Article>> =

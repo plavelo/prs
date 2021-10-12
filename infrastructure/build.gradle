@@ -45,7 +45,7 @@ dependencies {
     implementation "com.google.android.material:material:$materialVersion"
 
     // 3rd party
-    implementation "com.prof18.rssparser:rssparser:3.1.5"
+    implementation "com.prof18.rssparser:rssparser:$rssparserVersion"
 
     // testing
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"

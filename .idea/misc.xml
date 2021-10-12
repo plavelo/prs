@@ -6,8 +6,10 @@
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/outline_home_24.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2246376811594203" />
+        <entry key="app/src/main/res/layout/fragment_article_detail.xml" value="0.24048913043478262" />
         <entry key="app/src/main/res/layout/fragment_article_list.xml" value="0.25271739130434784" />
         <entry key="app/src/main/res/layout/fragment_article_list_item.xml" value="0.25271739130434784" />
+        <entry key="app/src/main/res/layout/fragment_article_pager.xml" value="0.2066800602712205" />
         <entry key="app/src/main/res/layout/fragment_feed_list.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_feed_list_item.xml" value="0.234375" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.26145833333333335" />

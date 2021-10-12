@@ -1,4 +1,4 @@
-package org.plavelo.prs.ui.article
+package org.plavelo.prs.ui.article.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,17 +9,25 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import org.plavelo.prs.databinding.FragmentArticleListItemBinding
 import org.plavelo.prs.domain.Article
+import org.plavelo.prs.domain.ArticleId
 
-class ArticleListAdapter :
-    ListAdapter<Article, ArticleListAdapter.ArticleViewHolder>(ArticleDiffCallback) {
+class ArticleListAdapter(
+    private val onClick: (ArticleId) -> Unit,
+) : ListAdapter<Article, ArticleListAdapter.ArticleViewHolder>(ArticleDiffCallback) {
 
-    class ArticleViewHolder(private val binding: FragmentArticleListItemBinding) :
+    class ArticleViewHolder(
+        private val binding: FragmentArticleListItemBinding,
+        private val onClick: (ArticleId) -> Unit,
+    ) :
         RecyclerView.ViewHolder(binding.root) {
-        private var currentArticle: Article? = null
+        private lateinit var currentArticle: Article
 
         fun bind(article: Article) {
             currentArticle = article
             val content = article.content
+            binding.root.setOnClickListener {
+                onClick(currentArticle.id)
+            }
             if (content != null) {
                 binding.textView.text = HtmlCompat
                     .fromHtml(content, HtmlCompat.FROM_HTML_MODE_LEGACY)
@@ -42,7 +50,7 @@ class ArticleListAdapter :
             parent,
             false
         )
-        return ArticleViewHolder(binding)
+        return ArticleViewHolder(binding, onClick)
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {

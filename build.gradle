@@ -32,6 +32,7 @@ buildscript {
         coilVersion = '1.4.0'
         junitVersion = '4.13.2'
         ktlintVersion = '10.2.0'
+        rssparserVersion = '3.1.5'
     }
     repositories {
         google()
@@ -41,7 +42,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktlintVersion"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
