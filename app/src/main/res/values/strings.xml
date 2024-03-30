@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">prs</string>
+    <string name="app_name">rss</string>
     <string name="nav_home">Home</string>
     <string name="nav_add">Feed</string>
     <string name="title_add_feed">Add new feed</string>

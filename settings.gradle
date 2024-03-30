@@ -6,7 +6,7 @@ dependencyResolutionManagement {
         maven { url 'https://plugins.gradle.org/m2/' }
     }
 }
-rootProject.name = 'prs'
+rootProject.name = 'rss'
 include ':app'
 include ':infrastructure'
 include ':domain'

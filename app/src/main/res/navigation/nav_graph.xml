@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/articleListFragment"
-        android:name="org.plavelo.prs.ui.article.list.ArticlePagerFragment"
+        android:name="org.plavelo.rss.ui.article.list.ArticlePagerFragment"
         android:label="ArticleListFragment">
         <action
             android:id="@+id/action_articleListFragment_to_feedListFragment"
@@ -18,11 +18,11 @@
     </fragment>
     <fragment
         android:id="@+id/feedListFragment"
-        android:name="org.plavelo.prs.ui.feed.FeedListFragment"
+        android:name="org.plavelo.rss.ui.feed.FeedListFragment"
         android:label="FeedListFragment" />
     <fragment
         android:id="@+id/articleDetailFragment"
-        android:name="org.plavelo.prs.ui.article.detail.ArticleDetailFragment"
+        android:name="org.plavelo.rss.ui.article.detail.ArticleDetailFragment"
         android:label="ArticleDetailFragment">
         <argument
             android:name="articleId"

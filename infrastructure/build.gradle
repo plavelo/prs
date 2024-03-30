@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'org.plavelo.prs.infrastructure'
+    namespace 'org.plavelo.rss.infrastructure'
 
     compileSdk rootProject.ext.compileSdkVersion
 

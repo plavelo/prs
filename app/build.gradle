@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    namespace 'org.plavelo.prs'
+    namespace 'org.plavelo.rss'
     buildToolsVersion = '34.0.0'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId 'org.plavelo.prs'
+        applicationId 'org.plavelo.rss'
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.compileSdkVersion
         versionCode rootProject.ext.versionCode
